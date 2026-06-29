@@ -75,7 +75,6 @@ button{cursor:pointer;font-family:inherit}
 .container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--sp-lg)}
 @media(max-width:768px){.container{padding:0 var(--sp-md)}}
 
-/* SVG ICON GLOBAL */
 svg.icon, svg.icon-sm, svg.icon-lg,
 .scene-time svg, .scene-location svg, 
 .scene-dtag svg, details.scene-shots summary svg,
@@ -84,7 +83,6 @@ svg.icon, svg.icon-sm, svg.icon-lg,
 .tab-btn svg, .header-meta-item svg,
 .header-badge svg{fill:none !important;stroke:currentColor !important;stroke-linecap:round !important;stroke-linejoin:round !important;stroke-width:2 !important}
 
-/* HEADER */
 .header{
   padding:var(--sp-3x) 0 var(--sp-xl);
   border-bottom:1px solid var(--border);
@@ -124,7 +122,6 @@ svg.icon, svg.icon-sm, svg.icon-lg,
 .header-meta-item svg{width:14px;height:14px;color:var(--accent-light)}
 .header-meta-item strong{color:var(--fg);font-weight:600;margin-right:2px}
 
-/* TABS */
 .tabs{
   display:flex;gap:3px;margin-bottom:var(--sp-xl);
   background:var(--surface);border-radius:var(--r-lg);padding:4px;
@@ -144,7 +141,6 @@ svg.icon, svg.icon-sm, svg.icon-lg,
 .tab-content.active{display:block}
 @keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 
-/* INFO BAR */
 .info-bar{
   background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
   padding:var(--sp-lg) var(--sp-xl);margin-bottom:var(--sp-xl);
@@ -160,7 +156,6 @@ svg.icon, svg.icon-sm, svg.icon-lg,
 .info-item .value.gold{color:var(--scu-gold)}
 .info-item .value.green{color:var(--scu-green)}
 
-/* TIMELINE */
 .timeline-wrapper{
   background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
   padding:var(--sp-lg);margin-bottom:var(--sp-xl);
@@ -187,7 +182,6 @@ svg.icon, svg.icon-sm, svg.icon-lg,
 .timeline-hour.active .tl-fill{opacity:1}
 .timeline-hour .tl-marker{width:2px;height:7px;background:var(--muted-2);border-radius:1px}
 
-/* SCENE CARD */
 .scene-card{
   background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
   margin-bottom:var(--sp-lg);overflow:hidden;
@@ -305,7 +299,6 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
 }
 .wrap-badge svg{color:#fff !important}
 
-/* SEARCH BAR */
 .search-bar{
   display:flex;align-items:center;gap:var(--sp-sm);
   background:var(--surface-2);border:1px solid var(--border);
@@ -334,10 +327,8 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
   min-height:18px;font-family:var(--font-mono);
 }
 
-/* SCENE CARD HIDDEN STATE */
 .scene-card.hidden{display:none}
 
-/* RESPONSIVE */
 @media(max-width:768px){
   .search-bar{margin:var(--sp-md) 0;max-width:100%}
   .header{padding:var(--sp-2x) 0 var(--sp-lg)}
@@ -401,7 +392,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
     </button>
   </nav>
 
-  <!-- ===== DAY 1: 30 JUNI 2026 — KAMPUS 1 ===== -->
+  <!-- ===== DAY 1 ===== -->
   <section id="day1" class="tab-content active" role="tabpanel">
     <div class="info-bar">
       <div class="info-item"><span class="label">03:00</span><span class="value">Crew Call</span></div>
@@ -452,7 +443,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 2 — Opening Hero -->
+    <!-- Scene 2 -- Opening Hero -->
     <div class="scene-card" data-tag="present">
       <div class="scene-header">
         <span class="scene-tag">Bagian 1 &middot; Present Day</span>
@@ -463,7 +454,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body">
         <div class="scene-desc">
           <h3><span class="sn">Scene 2</span> Opening Hero</h3>
-          <p>Dion melangkah maju menatap hangatnya matahari. Maya berdiri di samping dengan seragam dokter. Sun flare dari balik gedung SCU. Extreme close up mata Dion &mdash; zoom ke pupil &mdash; transisi ke flashback. Scene 21 (ending) menggunakan footage yang sama, tilt down dari langit ke wajah Dion tersenyum.</p>
+          <p>Dion melangkah maju menatap hangatnya matahari. Maya berdiri di samping dengan seragam dokter. Sun flare dari balik gedung SCU. Extreme close up mata Dion &mdash; zoom ke pupil &mdash; transisi ke flashback.</p>
           <div class="scene-dtags">
             <span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E</span>
             <span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span>
@@ -473,15 +464,15 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>7 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>2.1</td><td>Wide</td><td>Tracking Backward</td><td>Maya (baju dokter) berdiri di depan gedung SCU</td><td>&ndash;</td></tr>
-                <tr><td>2.2</td><td>Close Up</td><td>&ndash;</td><td>Maya memejamkan mata, membuka ke arah matahari</td><td>&ndash;</td></tr>
-                <tr><td>2.3</td><td>Medium</td><td>Tracking Backward</td><td>Dion (baju arsitek) berjalan menghampiri Maya</td><td>&ndash;</td></tr>
-                <tr><td>2.4</td><td>Low Angle</td><td>Static / Lens Flare</td><td>Matahari mengintip dari balik gedung SCU</td><td>&ndash;</td></tr>
-                <tr><td>2.5</td><td>MS (2-Shot)</td><td>Dolly In</td><td>Dion dan Maya berdampingan, menatap masa depan</td><td>&ndash;</td></tr>
-                <tr><td>2.6</td><td>Close Up</td><td>&ndash;</td><td>Saling berpandangan, OTS patung Soegijapranata</td><td>&ndash;</td></tr>
-                <tr><td>2.7</td><td>ECU</td><td>Fast Zoom In</td><td>Detail mata Dion, zoom ke pupil</td><td class="st-trans">Eye Masking &rarr; Flashback</td></tr>
+                <tr><td>2.1</td><td>Wide</td><td>Tracking Backward</td><td>Maya (baju dokter) berdiri di depan gedung SCU</td><td>&ndash;</td><td>7 min</td></tr>
+                <tr><td>2.2</td><td>Close Up</td><td>&ndash;</td><td>Maya memejamkan mata, membuka ke arah matahari</td><td>&ndash;</td><td>5 min</td></tr>
+                <tr><td>2.3</td><td>Medium</td><td>Tracking Backward</td><td>Dion (baju arsitek) berjalan menghampiri Maya</td><td>&ndash;</td><td>8 min</td></tr>
+                <tr><td>2.4</td><td>Low Angle</td><td>Static / Lens Flare</td><td>Matahari mengintip dari balik gedung SCU</td><td>&ndash;</td><td>5 min</td></tr>
+                <tr><td>2.5</td><td>MS (2-Shot)</td><td>Dolly In</td><td>Dion dan Maya berdampingan, menatap masa depan</td><td>&ndash;</td><td>7 min</td></tr>
+                <tr><td>2.6</td><td>Close Up</td><td>&ndash;</td><td>Saling berpandangan, OTS patung Soegijapranata</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>2.7</td><td>ECU</td><td>Fast Zoom In</td><td>Detail mata Dion, zoom ke pupil</td><td class="st-trans">Eye Masking &rarr; Flashback</td><td>10 min</td></tr>
               </tbody>
             </table>
           </details>
@@ -506,7 +497,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 9 — Profesi Gathering / Present Day Return -->
+    <!-- Profesi Gathering -->
     <div class="scene-card" data-tag="present">
       <div class="scene-header">
         <span class="scene-tag">Bagian 1 &middot; Present Day</span>
@@ -522,17 +513,17 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>2 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>9.1</td><td>Wide</td><td>&ndash;</td><td>Kembali ke masa kini: topi jatuh, talent pakai seragam profesi</td></tr>
-                <tr><td>9.2</td><td>Wide</td><td>Pull Back</td><td>Semua karakter berdiri bangga merepresentasikan kesuksesan lulusan</td></tr>
+                <tr><td>9.1</td><td>Wide</td><td>&ndash;</td><td>Kembali ke masa kini: topi jatuh, talent pakai seragam profesi</td><td>&mdash;</td></tr>
+                <tr><td>9.2</td><td>Wide</td><td>Pull Back</td><td>Semua karakter berdiri bangga merepresentasikan kesuksesan lulusan</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
         </div>
         <div class="scene-images">
           <img src="Detail Shotlist - Video Profile SCU/images/image34.png" alt="Toga" loading="lazy">
-          <span class="img-label">Scene 20 (Toga) — referensi</span>
+          <span class="img-label">Scene 20 (Toga) &mdash; referensi</span>
         </div>
       </div>
     </div>
@@ -543,7 +534,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Persiapan untuk scene Toga kelulusan dan Kampus Life.</p></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Scene 20 — Toga Kelulusan -->
+    <!-- Scene 20 -- Toga Kelulusan -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -563,11 +554,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>19.1</td><td>WS</td><td>Arc Shot (slowing)</td><td>Dion, Maya, teman pakai Toga</td><td>&ndash;</td></tr>
-                <tr><td>19.2</td><td>Medium</td><td>&ndash;</td><td>Orang tua memeluk Dion, sungkem</td><td>&ndash;</td></tr>
-                <tr><td>19.2b</td><td>Low Angle</td><td>Tilt Up</td><td>Topi toga terbang menutupi matahari</td><td class="st-trans">Sky/Object &rarr; Masa Kini</td></tr>
+                <tr><td>19.1</td><td>WS</td><td>Arc Shot (slowing)</td><td>Dion, Maya, teman pakai Toga</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>19.2</td><td>Medium</td><td>&ndash;</td><td>Orang tua memeluk Dion, sungkem</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>19.2b</td><td>Low Angle</td><td>Tilt Up</td><td>Topi toga terbang menutupi matahari</td><td class="st-trans">Sky/Object &rarr; Masa Kini</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -583,7 +574,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 19 — Kampus Life -->
+    <!-- Scene 19 -- Kampus Life -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -602,11 +593,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>18.1</td><td>Wide</td><td>Pan</td><td>Dion & Maya memasuki area tulisan SCU</td><td>&ndash;</td></tr>
-                <tr><td>18.2</td><td>Medium</td><td>Steadicam</td><td>Berjalan di sekitar kampus, tertawa</td><td>&ndash;</td></tr>
-                <tr><td>18.3</td><td>MS (Group)</td><td>Arc Shot</td><td>Kamera memutari grup</td><td class="st-trans">Circle Camera &rarr; Blur &rarr; Wisuda</td></tr>
+                <tr><td>18.1</td><td>Wide</td><td>Pan</td><td>Dion & Maya memasuki area tulisan SCU</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>18.2</td><td>Medium</td><td>Steadicam</td><td>Berjalan di sekitar kampus, tertawa</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>18.3</td><td>MS (Group)</td><td>Arc Shot</td><td>Kamera memutari grup</td><td class="st-trans">Circle Camera &rarr; Blur &rarr; Wisuda</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -621,7 +612,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Ruang Praperadilan FH.</p></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Scene 10 — Praperadilan Hukum -->
+    <!-- Scene 10 -- Praperadilan Hukum -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -640,19 +631,19 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>4 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>10.1</td><td>WS</td><td>Low Medium Angle</td><td>Sidang praperadilan, banyak fotografer/videografer</td></tr>
-                <tr><td>10.2</td><td>CU</td><td>&ndash;</td><td>Hakim mengetuk palu</td></tr>
-                <tr><td>10.3</td><td>Medium</td><td>&ndash;</td><td>Presenter dan kameramen meliput sidang</td></tr>
-                <tr><td>10.4</td><td>MS</td><td>Dolly In</td><td>Mahasiswa berdiri argumen lalu duduk</td></tr>
+                <tr><td>10.1</td><td>WS</td><td>Low Medium Angle</td><td>Sidang praperadilan, banyak fotografer/videografer</td><td>&mdash;</td></tr>
+                <tr><td>10.2</td><td>CU</td><td>&ndash;</td><td>Hakim mengetuk palu</td><td>&mdash;</td></tr>
+                <tr><td>10.3</td><td>Medium</td><td>&ndash;</td><td>Presenter dan kameramen meliput sidang</td><td>&mdash;</td></tr>
+                <tr><td>10.4</td><td>MS</td><td>Dolly In</td><td>Mahasiswa berdiri argumen lalu duduk</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
         </div>
         <div class="scene-images">
           <img src="Detail Shotlist - Video Profile SCU/images/image15.png" alt="Praperadilan" loading="lazy">
-          <span class="img-label">Scene 10 — Praperadilan</span>
+          <span class="img-label">Scene 10 &mdash; Praperadilan</span>
         </div>
       </div>
     </div>
@@ -663,7 +654,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Auditorium Kampus.</p></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Scene 7A — Maya Menari -->
+    <!-- Scene 7A -- Maya Menari -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -682,11 +673,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>7.1</td><td>Wide</td><td>Static</td><td>Maya menari di auditorium</td><td>&ndash;</td></tr>
-                <tr><td>7.2</td><td>Medium</td><td>&ndash;</td><td>Maya struggle gerakan tari</td><td>&ndash;</td></tr>
-                <tr><td>7.3</td><td>Medium</td><td>Handheld</td><td>Teman membetulkan gerakan</td><td>&ndash;</td></tr>
+                <tr><td>7.1</td><td>Wide</td><td>Static</td><td>Maya menari di auditorium</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>7.2</td><td>Medium</td><td>&ndash;</td><td>Maya struggle gerakan tari</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>7.3</td><td>Medium</td><td>Handheld</td><td>Teman membetulkan gerakan</td><td>&ndash;</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -703,7 +694,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 3B — Dion Berlari (Split Day 1) -->
+    <!-- Scene 3B -- Dion Berlari (Split Day 1) -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -722,11 +713,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>3.1</td><td>Wide</td><td>Quick Cuts</td><td>Rangkaian Dion berlari di berbagai spot kampus berbeda</td><td class="st-trans">Match Cut Action</td></tr>
-                <tr><td>3.2</td><td>Medium</td><td>Dynamic Tracking</td><td>Dion berjalan di area kampus</td><td>&ndash;</td></tr>
-                <tr><td>3.5</td><td>Medium</td><td>Static</td><td>Maya dan Dion berjalan, 2 mahasiswa crossing depan kamera</td><td class="st-trans">Crossing Talent</td></tr>
+                <tr><td>3.1</td><td>Wide</td><td>Quick Cuts</td><td>Rangkaian Dion berlari di berbagai spot kampus berbeda</td><td class="st-trans">Match Cut Action</td><td>15 min</td></tr>
+                <tr><td>3.2</td><td>Medium</td><td>Dynamic Tracking</td><td>Dion berjalan di area kampus</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>3.5</td><td>Medium</td><td>Static</td><td>Maya dan Dion berjalan, 2 mahasiswa crossing depan kamera</td><td class="st-trans">Crossing Talent</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -753,7 +744,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Lunch</h3><p>Ishoma & persiapan sesi sore.</p></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Scene 5+8 — Konsultasi Psikologi -->
+    <!-- Scene 5+8 -- Konsultasi Psikologi -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -773,13 +764,13 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>5 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>7B.1</td><td>Medium</td><td>Eye Level</td><td>Dion di perpustakaan, wajah stres di depan laptop dan maket berantakan</td><td>&ndash;</td></tr>
-                <tr><td>7B.2</td><td>Close Up</td><td>Static</td><td>Tangan Dion memegang kepala/wajah</td><td>&ndash;</td></tr>
-                <tr><td>7B.3</td><td>Medium</td><td>Tracking Shot</td><td>Teman merangkul Dion, berjalan keluar perpustakaan</td><td class="st-trans">Orbit Transition</td></tr>
-                <tr><td>8.2</td><td>Medium</td><td>Follow</td><td>Dion masuk ruangan, berpapasan dengan mahasiswa lain</td><td>&ndash;</td></tr>
-                <tr><td>8.3</td><td>OTS</td><td>Static</td><td>Dion duduk lega, mendapat solusi dari konsultan. Grafis: Konsultasi Psikologi</td><td>&ndash;</td></tr>
+                <tr><td>7B.1</td><td>Medium</td><td>Eye Level</td><td>Dion di perpustakaan, wajah stres di depan laptop dan maket berantakan</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>7B.2</td><td>Close Up</td><td>Static</td><td>Tangan Dion memegang kepala/wajah</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>7B.3</td><td>Medium</td><td>Tracking Shot</td><td>Teman merangkul Dion, berjalan keluar perpustakaan</td><td class="st-trans">Orbit Transition</td><td>&mdash;</td></tr>
+                <tr><td>8.2</td><td>Medium</td><td>Follow</td><td>Dion masuk ruangan, berpapasan dengan mahasiswa lain</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>8.3</td><td>OTS</td><td>Static</td><td>Dion duduk lega, mendapat solusi dari konsultan. Grafis: Konsultasi Psikologi</td><td>&ndash;</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -806,7 +797,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Lokasi UMKM.</p></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Scene 17+18 — KKN & UMKM -->
+    <!-- Scene 17+18 -- KKN & UMKM -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -825,14 +816,14 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>6 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>17.1</td><td>WS</td><td>Establishing</td><td>Wide shot sekolah pagi, siswa masuk kelas, KKN masuk</td><td>&ndash;</td></tr>
-                <tr><td>17.2</td><td>MS</td><td>Handheld</td><td>Mahasiswa KKN memasuki kelas, tersenyum, menyapa siswa</td><td>&ndash;</td></tr>
-                <tr><td>17.3</td><td>OTS</td><td>Handheld</td><td>KKN menjelaskan materi di papan/proyektor, siswa bertanya</td><td>&ndash;</td></tr>
-                <tr><td>18.1</td><td>OTS</td><td>Static</td><td>Wide ruang produksi UMKM, pengemasan manual</td><td>&ndash;</td></tr>
-                <tr><td>18.2</td><td>Medium</td><td>&ndash;</td><td>Mahasiswa berdiskusi dengan pemilik UMKM, contoh desain packaging</td><td>&ndash;</td></tr>
-                <tr><td>18.3</td><td>Wide</td><td>&ndash;</td><td>Produk UMKM tertata rapi, mahasiswa dan pelaku UMKM berdiri bersama</td><td class="st-trans">Object Crossing</td></tr>
+                <tr><td>17.1</td><td>WS</td><td>Establishing</td><td>Wide shot sekolah pagi, siswa masuk kelas, KKN masuk</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>17.2</td><td>MS</td><td>Handheld</td><td>Mahasiswa KKN memasuki kelas, tersenyum, menyapa siswa</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>17.3</td><td>OTS</td><td>Handheld</td><td>KKN menjelaskan materi di papan/proyektor, siswa bertanya</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>18.1</td><td>OTS</td><td>Static</td><td>Wide ruang produksi UMKM, pengemasan manual</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>18.2</td><td>Medium</td><td>&ndash;</td><td>Mahasiswa berdiskusi dengan pemilik UMKM, contoh desain packaging</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>18.3</td><td>Wide</td><td>&ndash;</td><td>Produk UMKM tertata rapi, mahasiswa dan pelaku UMKM berdiri bersama</td><td class="st-trans">Object Crossing</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -847,7 +838,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Persiapan Malam</h3><p>Break kru + set up lighting untuk scene malam.</p></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Scene 14 — Lab Teknik -->
+    <!-- Scene 14 -- Lab Teknik -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -866,11 +857,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>14.1</td><td>WS to Medium</td><td>Dolly Track In</td><td>Suasana laboratorium aktif, mahasiswa melakukan pengujian alat</td></tr>
-                <tr><td>14.2</td><td>CU</td><td>&ndash;</td><td>Detail layar monitor, angka hasil pengukuran</td></tr>
-                <tr><td>14.3</td><td>Medium</td><td>&ndash;</td><td>Mahasiswa menjalankan alat</td></tr>
+                <tr><td>14.1</td><td>WS to Medium</td><td>Dolly Track In</td><td>Suasana laboratorium aktif, mahasiswa melakukan pengujian alat</td><td>&mdash;</td></tr>
+                <tr><td>14.2</td><td>CU</td><td>&ndash;</td><td>Detail layar monitor, angka hasil pengukuran</td><td>&mdash;</td></tr>
+                <tr><td>14.3</td><td>Medium</td><td>&ndash;</td><td>Mahasiswa menjalankan alat</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -886,7 +877,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Lab FITL.</p></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Scene 13 — FITL -->
+    <!-- Scene 13 -- FITL -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -905,21 +896,21 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>1 shot</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>13.1</td><td>Medium</td><td>Tilt Down</td><td>Mahasiswa FITL melakukan observasi tanaman</td></tr>
+                <tr><td>13.1</td><td>Medium</td><td>Tilt Down</td><td>Mahasiswa FITL melakukan observasi tanaman</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
         </div>
         <div class="scene-images">
           <img src="Detail Shotlist - Video Profile SCU/images/image28.png" alt="FITL" loading="lazy">
-          <span class="img-label">Scene 13 — FITL</span>
+          <span class="img-label">Scene 13 &mdash; FITL</span>
         </div>
       </div>
     </div>
 
-    <!-- Scene 11 — Coding & Robot -->
+    <!-- Scene 11 -- Coding & Robot -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -938,24 +929,24 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>4 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>11.1</td><td>Medium</td><td>Tilt Down to Static</td><td>Mahasiswi IT dari berdiri langsung duduk di depan komputer coding</td><td>&ndash;</td></tr>
-                <tr><td>11.2</td><td>&ndash;</td><td>&ndash;</td><td>(Shot cadangan)</td><td>&ndash;</td></tr>
-                <tr><td>11.3</td><td>CU</td><td>Static</td><td>Layar komputer coding</td><td>&ndash;</td></tr>
-                <tr><td>11.4</td><td>CU</td><td>Pan Right</td><td>Detail robot yang sedang dikalibrasi</td><td class="st-trans">Whip Pan</td></tr>
+                <tr><td>11.1</td><td>Medium</td><td>Tilt Down to Static</td><td>Mahasiswi IT dari berdiri langsung duduk di depan komputer coding</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>11.2</td><td>&ndash;</td><td>&ndash;</td><td>(Shot cadangan)</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>11.3</td><td>CU</td><td>Static</td><td>Layar komputer coding</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>11.4</td><td>CU</td><td>Pan Right</td><td>Detail robot yang sedang dikalibrasi</td><td class="st-trans">Whip Pan</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
         </div>
         <div class="scene-images">
           <img src="Detail Shotlist - Video Profile SCU/images/image31.png" alt="Coding" loading="lazy">
-          <span class="img-label">Scene 11 — Coding</span>
+          <span class="img-label">Scene 11 &mdash; Coding</span>
         </div>
       </div>
     </div>
 
-    <!-- Scene 12 — Pertanian (NEW) -->
+    <!-- Scene 12 -- Pertanian -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -974,10 +965,10 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>2 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>12.1</td><td>Medium</td><td>Fast Dolly & Pan</td><td>Mahasiswa pertanian meneliti objek di lab. Kamera dinamis.</td><td>&ndash;</td></tr>
-                <tr><td>12.2</td><td>ECU</td><td>Macro Shot</td><td>Detail bibit pertanian</td><td class="st-trans">Swish Pan</td></tr>
+                <tr><td>12.1</td><td>Medium</td><td>Fast Dolly & Pan</td><td>Mahasiswa pertanian meneliti objek di lab. Kamera dinamis.</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>12.2</td><td>ECU</td><td>Macro Shot</td><td>Detail bibit pertanian</td><td class="st-trans">Swish Pan</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -986,7 +977,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 15 — FEB Saham -->
+    <!-- Scene 15 -- FEB Saham -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -997,7 +988,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body">
         <div class="scene-desc">
           <h3><span class="sn">Scene 15</span> Pemantauan Saham</h3>
-          <p>Mahasiswi FEB fokus menatap grafik saham. Refleksi grafik di kacamata/mata. Ekspresi wajah serius. Match cut untuk transisi.</p>
+          <p>Mahasiswi FEB fokus menatap grafik saham. Refleksi grafik di kacamata/mata. Ekspresi wajah serius.</p>
           <div class="scene-dtags">
             <span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span>
             <span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> Malam</span>
@@ -1005,11 +996,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>15.1</td><td>CU</td><td>Dolly In</td><td>Mahasiswi fokus menatap grafik saham</td><td>&ndash;</td></tr>
-                <tr><td>15.2</td><td>ECU</td><td>Focus Pull</td><td>Refleksi grafik di kacamata/mata mahasiswi</td><td>&ndash;</td></tr>
-                <tr><td>15.3</td><td>Medium</td><td>Dolly In</td><td>Ekspresi wajah serius menatap layar</td><td class="st-trans">Match Cut</td></tr>
+                <tr><td>15.1</td><td>CU</td><td>Dolly In</td><td>Mahasiswi fokus menatap grafik saham</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>15.2</td><td>ECU</td><td>Focus Pull</td><td>Refleksi grafik di kacamata/mata mahasiswi</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>15.3</td><td>Medium</td><td>Dolly In</td><td>Ekspresi wajah serius menatap layar</td><td class="st-trans">Match Cut</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -1026,7 +1017,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
     </div>
   </section>
 
-  <!-- ===== DAY 2: 1 JULI 2026 — KAMPUS 2 BSB ===== -->
+  <!-- ===== DAY 2 ===== -->
   <section id="day2" class="tab-content" role="tabpanel">
     <div class="info-bar">
       <div class="info-item"><span class="label">05:00</span><span class="value">Crew Call</span></div>
@@ -1066,7 +1057,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Breakfast & Set Up</h3><p>Breakfast 05:00&ndash;05:30. Set up 05:30&ndash;06:00. 1st Cam Roll 07:30.</p><div class="scene-dtags"><span class="scene-dtag">Breakfast 05:00&ndash;05:30</span><span class="scene-dtag">Set Up 05:30&ndash;06:00</span><span class="scene-dtag">1st Cam Roll 07:30</span></div></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Maya Bertemu Dion — Call Sheet Scene (no shotlist number) -->
+    <!-- Maya Bertemu Dion -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -1087,7 +1078,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 3A — Dion Berlari (Day 2 portion) -->
+    <!-- Scene 3A -- Dion Berlari (Day 2) -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -1105,10 +1096,10 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>2 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>3.3</td><td>Medium</td><td>&ndash;</td><td>Maya berjalan di lorong, foto di notesnya jatuh</td></tr>
-                <tr><td>3.4</td><td>Close Up</td><td>&ndash;</td><td>Dion mengambil foto yang ada di buku catatan</td></tr>
+                <tr><td>3.3</td><td>Medium</td><td>&ndash;</td><td>Maya berjalan di lorong, foto di notesnya jatuh</td><td>&mdash;</td></tr>
+                <tr><td>3.4</td><td>Close Up</td><td>&ndash;</td><td>Dion mengambil foto yang ada di buku catatan</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -1124,7 +1115,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 5 — Lab FK (NEW - was missing) -->
+    <!-- Scene 5 -- Lab FK -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -1143,20 +1134,20 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>2 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>5.1</td><td>Wide</td><td>Pan Right</td><td>Aktivitas laboratorium FK</td></tr>
-                <tr><td>5.2</td><td>CU</td><td>Static</td><td>Mahasiswi melihat melalui mikroskop</td></tr>
+                <tr><td>5.1</td><td>Wide</td><td>Pan Right</td><td>Aktivitas laboratorium FK</td><td>&mdash;</td></tr>
+                <tr><td>5.2</td><td>CU</td><td>Static</td><td>Mahasiswi melihat melalui mikroskop</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
-          <div class="scene-notes info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><strong>Note:</strong> Scene 5 tidak dijadwalkan di Call Sheet — alokasi waktu bersifat estimasi.</div>
+          <div class="scene-notes info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><strong>Note:</strong> Scene 5 tidak dijadwalkan di Call Sheet &mdash; alokasi waktu bersifat estimasi.</div>
         </div>
         <div class="scene-images"></div>
       </div>
     </div>
 
-    <!-- Scene 6 — Maket Arsitektur (fix: naming conflict resolved) -->
+    <!-- Scene 6 -- Maket Arsitektur -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -1175,14 +1166,14 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>2 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>6.1</td><td>POV</td><td>Handheld</td><td>Mengintip dari sela-sela maket arsitektur</td></tr>
-                <tr><td>6.2</td><td>Medium</td><td>Dolly Out</td><td>Dion dan teman mengintip maket. Dosen datang memberi arahan. Grafis: Prodi Arsitektur</td></tr>
+                <tr><td>6.1</td><td>POV</td><td>Handheld</td><td>Mengintip dari sela-sela maket arsitektur</td><td>&mdash;</td></tr>
+                <tr><td>6.2</td><td>Medium</td><td>Dolly Out</td><td>Dion dan teman mengintip maket. Dosen datang. Grafis: Prodi Arsitektur</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
-          <div class="scene-notes info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><strong>Klarifikasi:</strong> Scene 6 di Shotlist = Maket Arsitektur (bukan Maya Bertemu Dion). Scene pertemuan di Library tidak memiliki nomor di shotlist.</div>
+          <div class="scene-notes info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><strong>Klarifikasi:</strong> Scene 6 di Shotlist = Maket Arsitektur (bukan Maya Bertemu Dion).</div>
         </div>
         <div class="scene-images">
           <div class="img-grid">
@@ -1194,18 +1185,18 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 4 + 12 — Lab Medis & Pertanian (combined in Call Sheet) -->
+    <!-- Scene 4 -- Praktikum Bedah -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
         <span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:00 &ndash; 12:00</span>
         <span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lab Medis</strong></span>
-        <span class="xdoc-badge merged">Shotlist Scene 4 + 5</span>
+        <span class="xdoc-badge merged">Shotlist Scene 4</span>
       </div>
       <div class="scene-body">
         <div class="scene-desc">
           <h3><span class="sn">Scene 4</span> Praktikum Bedah</h3>
-          <p>Maya praktik pembedahan dengan seragam lab lengkap. Pullback reveal. Keluar ruang operasi disambut teman. High five tos — slow motion — whip pan transisi.</p>
+          <p>Maya praktik pembedahan dengan seragam lab lengkap. Pullback reveal. Keluar ruang operasi disambut teman. High five tos &mdash; slow motion &mdash; whip pan transisi.</p>
           <div class="scene-dtags">
             <span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span>
             <span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span>
@@ -1214,12 +1205,12 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>4 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>4.1</td><td>Wide</td><td>Pullback</td><td>Maya seragam lab bersiap. Grafis: Prodi Kedokteran</td><td>&ndash;</td></tr>
-                <tr><td>4.2</td><td>Group</td><td>Static / Focus Pull</td><td>Maya membedah dummy pasien bersama mahasiswi lain</td><td>&ndash;</td></tr>
-                <tr><td>4.3</td><td>Medium</td><td>Handheld</td><td>Maya keluar ruang operasi, disambut teman-teman</td><td>&ndash;</td></tr>
-                <tr><td>4.3b</td><td>CU</td><td>Slow Motion</td><td>Tangan Maya dan teman high five (tos)</td><td class="st-trans">Whip Pan</td></tr>
+                <tr><td>4.1</td><td>Wide</td><td>Pullback</td><td>Maya seragam lab bersiap. Grafis: Prodi Kedokteran</td><td>&ndash;</td><td>7 min</td></tr>
+                <tr><td>4.2</td><td>Group</td><td>Static / Focus Pull</td><td>Maya membedah dummy pasien bersama mahasiswi lain</td><td>&ndash;</td><td>10 min</td></tr>
+                <tr><td>4.3</td><td>Medium</td><td>Handheld</td><td>Maya keluar ruang operasi, disambut teman-teman</td><td>&ndash;</td><td>7 min</td></tr>
+                <tr><td>4.3b</td><td>CU</td><td>Slow Motion</td><td>Tangan Maya dan teman high five (tos)</td><td class="st-trans">Whip Pan</td><td>7 min</td></tr>
               </tbody>
             </table>
           </details>
@@ -1240,7 +1231,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       <div class="scene-body"><div class="scene-desc"><h3>Lunch</h3></div><div class="scene-images"></div></div>
     </div>
 
-    <!-- Scene 16 — Badminton -->
+    <!-- Scene 16 -- Badminton -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -1259,11 +1250,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>16.1</td><td>Medium</td><td>Dolly In</td><td>Maya bersiap serve</td></tr>
-                <tr><td>16.2</td><td>Medium</td><td>Top View</td><td>Dion/Maya melakukan smash</td></tr>
-                <tr><td>16.3</td><td>Medium</td><td>Action Tracking</td><td>Maya memukul kok, Dion membalas. Mereka tertawa.</td></tr>
+                <tr><td>16.1</td><td>Medium</td><td>Dolly In</td><td>Maya bersiap serve</td><td>&mdash;</td></tr>
+                <tr><td>16.2</td><td>Medium</td><td>Top View</td><td>Dion/Maya melakukan smash</td><td>&mdash;</td></tr>
+                <tr><td>16.3</td><td>Medium</td><td>Action Tracking</td><td>Maya memukul kok, Dion membalas. Mereka tertawa.</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -1272,7 +1263,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 1 — Meeting Client -->
+    <!-- Scene 1 -- Meeting Client -->
     <div class="scene-card" data-tag="present">
       <div class="scene-header">
         <span class="scene-tag">Bagian 1 &middot; Present Day</span>
@@ -1291,12 +1282,12 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>4 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>1.1</td><td>Wide</td><td>Dolly Zoom In</td><td>Dion bertemu client, iPad, maket, sketsa di meja</td><td>&ndash;</td></tr>
-                <tr><td>1.2</td><td>Medium</td><td>Static</td><td>Ekspresi serius Dion menjelaskan, Client bersalaman</td><td>&ndash;</td></tr>
-                <tr><td>1.3</td><td>CU</td><td>Dolly In Smooth</td><td>Close up Dion dapat notif chat dari teman lamanya Maya</td><td>&ndash;</td></tr>
-                <tr><td>1.4</td><td>Medium</td><td>Circle Move</td><td>Dion tersenyum mengiyakan ajakan Maya</td><td class="st-trans">Masking Foreground</td></tr>
+                <tr><td>1.1</td><td>Wide</td><td>Dolly Zoom In</td><td>Dion bertemu client, iPad, maket, sketsa di meja</td><td>&ndash;</td><td>15 min</td></tr>
+                <tr><td>1.2</td><td>Medium</td><td>Static</td><td>Ekspresi serius Dion menjelaskan, Client bersalaman</td><td>&ndash;</td><td>10 min</td></tr>
+                <tr><td>1.3</td><td>CU</td><td>Dolly In Smooth</td><td>Close up Dion dapat notif chat dari teman lamanya Maya</td><td>&ndash;</td><td>15 min</td></tr>
+                <tr><td>1.4</td><td>Medium</td><td>Circle Move</td><td>Dion tersenyum mengiyakan ajakan Maya</td><td class="st-trans">Masking Foreground</td><td>10 min</td></tr>
               </tbody>
             </table>
           </details>
@@ -1318,7 +1309,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 7B — Dion Stres (Call Sheet references both 5+7B in Perpustakaan) -->
+    <!-- Scene 7B -- Dion Stres -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -1337,11 +1328,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>7B.1</td><td>Medium</td><td>Eye Level</td><td>Dion di perpustakaan, wajah stres di depan laptop dan maket berantakan</td></tr>
-                <tr><td>7B.2</td><td>CU</td><td>Static</td><td>Tangan Dion memegang kepala/wajah</td></tr>
-                <tr><td>7B.3</td><td>Medium</td><td>Tracking Shot</td><td>Teman merangkul Dion, berjalan keluar perpustakaan</td></tr>
+                <tr><td>7B.1</td><td>Medium</td><td>Eye Level</td><td>Dion di perpustakaan, wajah stres di depan laptop dan maket berantakan</td><td>&mdash;</td></tr>
+                <tr><td>7B.2</td><td>CU</td><td>Static</td><td>Tangan Dion memegang kepala/wajah</td><td>&mdash;</td></tr>
+                <tr><td>7B.3</td><td>Medium</td><td>Tracking Shot</td><td>Teman merangkul Dion, berjalan keluar perpustakaan</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -1353,7 +1344,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 9 — Paduan Suara (detailed shot table added) -->
+    <!-- Scene 9 -- Paduan Suara -->
     <div class="scene-card" data-tag="flashback">
       <div class="scene-header">
         <span class="scene-tag">Bagian 2 &middot; Flashback</span>
@@ -1372,13 +1363,13 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>5 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Description</th><th>Transisi</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Description</th><th>Transisi</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>9.1</td><td>Wide</td><td>Paduan suara perform di panggung. Lampu mati-menyala</td><td>&ndash;</td></tr>
-                <tr><td>9.2</td><td>CU</td><td>Dirijen mulai mengayunkan tangan</td><td>&ndash;</td></tr>
-                <tr><td>9.3</td><td>Medium</td><td>Paduan suara mulai menyanyikan lagu</td><td>&ndash;</td></tr>
-                <tr><td>9.4</td><td>Wide-Medium</td><td>Penonton berdiri/bertepuk tangan. Maya dan Dion ikut</td><td class="st-trans">Object Foreground</td></tr>
-                <tr><td>9.5</td><td>CU</td><td>Maya dan Dion terpukau melihat penampilan</td><td>&ndash;</td></tr>
+                <tr><td>9.1</td><td>Wide</td><td>Paduan suara perform di panggung. Lampu mati-menyala</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>9.2</td><td>CU</td><td>Dirijen mulai mengayunkan tangan</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>9.3</td><td>Medium</td><td>Paduan suara mulai menyanyikan lagu</td><td>&ndash;</td><td>&mdash;</td></tr>
+                <tr><td>9.4</td><td>Wide-Medium</td><td>Penonton berdiri/bertepuk tangan. Maya dan Dion ikut</td><td class="st-trans">Object Foreground</td><td>&mdash;</td></tr>
+                <tr><td>9.5</td><td>CU</td><td>Maya dan Dion terpukau melihat penampilan</td><td>&ndash;</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
@@ -1391,7 +1382,7 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
       </div>
     </div>
 
-    <!-- Scene 21 — Ending (merged with Scene 2) -->
+    <!-- Scene 21 -- Ending -->
     <div class="scene-card" data-tag="ending">
       <div class="scene-header">
         <span class="scene-tag">Bagian 3 &middot; Ending</span>
@@ -1410,11 +1401,11 @@ details.scene-shots[open] summary svg{transform:rotate(90deg)}
           <details class="scene-shots" open>
             <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
             <table class="shot-table">
-              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th></tr></thead>
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Duration</th></tr></thead>
               <tbody>
-                <tr><td>20.1</td><td>Low Angle</td><td>Tilt Down</td><td>Kamera turun dari langit/matahari ke wajah Dion tersenyum</td></tr>
-                <tr><td>20.2</td><td>Wide</td><td>Dolly Out / Pull Back</td><td>Muncul mahasiswa lain berseragam profesi. Berpose ke kamera</td></tr>
-                <tr><td>20.3</td><td>Wide</td><td>Drone / Crane Up</td><td>Hero shot: reveal seluruh kelompok, latar gedung SCU</td></tr>
+                <tr><td>20.1</td><td>Low Angle</td><td>Tilt Down</td><td>Kamera turun dari langit/matahari ke wajah Dion tersenyum</td><td>&mdash;</td></tr>
+                <tr><td>20.2</td><td>Wide</td><td>Dolly Out / Pull Back</td><td>Muncul mahasiswa lain berseragam profesi. Berpose ke kamera</td><td>&mdash;</td></tr>
+                <tr><td>20.3</td><td>Wide</td><td>Drone / Crane Up</td><td>Hero shot: reveal seluruh kelompok, latar gedung SCU</td><td>&mdash;</td></tr>
               </tbody>
             </table>
           </details>
