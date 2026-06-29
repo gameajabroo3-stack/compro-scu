@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Breakdown Scene — Video Profile SCU 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1E293B;
+  --primary-on: #FFFFFF;
+  --secondary: #334155;
+  --accent: #2563EB;
+  --accent-light: #3B82F6;
+  --accent-dark: #1D4ED8;
+  --bg: #070B14;
+  --surface: rgba(17,24,39,0.85);
+  --surface-2: rgba(26,35,50,0.8);
+  --surface-3: rgba(36,48,68,0.7);
+  --fg: #F1F5F9;
+  --muted: #94A3B8;
+  --muted-2: #64748B;
+  --border: rgba(30,41,59,0.6);
+  --border-2: rgba(51,65,85,0.6);
+  --destructive: #EF4444;
+  --ring: #3B82F6;
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --info: #3B82F6;
+  --scu-blue: #073763;
+  --scu-gold: #F1C232;
+  --scu-green: #93C47D;
+  --font-sans: 'Fira Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;
+  --font-mono: 'Fira Code','SF Mono',Monaco,'Cascadia Code',monospace;
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+  --r-xl: 18px;
+  --sh-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --sh-md: 0 4px 16px rgba(0,0,0,0.4);
+  --sh-lg: 0 8px 32px rgba(0,0,0,0.5);
+  --sh-glow: 0 0 24px rgba(59,130,246,0.08);
+  --t-fast: 150ms ease;
+  --t-base: 250ms cubic-bezier(0.4,0,0.2,1);
+  --t-slow: 350ms cubic-bezier(0.4,0,0.2,1);
+  --max-w: 1280px;
+  --sp-xs: 4px;
+  --sp-sm: 8px;
+  --sp-md: 16px;
+  --sp-lg: 24px;
+  --sp-xl: 32px;
+  --sp-2x: 48px;
+  --sp-3x: 64px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  font-size:16px;
+  line-height:1.7;
+  color:var(--fg);
+  background:var(--bg);
+  background-image:radial-gradient(ellipse 80% 50% at 50% -10%,rgba(37,99,235,0.06) 0%,transparent 100%);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  min-height:100vh;
+}
+img{display:block;max-width:100%;height:auto;border-radius:var(--r-md)}
+a{color:var(--accent-light);text-decoration:none;transition:color var(--t-fast)}
+a:hover{color:var(--fg)}
+a:focus-visible{outline:2px solid var(--ring);outline-offset:2px;border-radius:var(--r-sm)}
+button{cursor:pointer;font-family:inherit}
+.container{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--sp-lg)}
+@media(max-width:768px){.container{padding:0 var(--sp-md)}}
+
+/* SVG ICON GLOBAL - force all inline svg used as icons to be visible */
+svg.icon, svg.icon-sm, svg.icon-lg,
+.scene-time svg, .scene-location svg, 
+.scene-dtag svg, details.scene-shots summary svg,
+.scene-notes svg, .wrap-badge svg,
+.search-icon, .search-clear svg,
+.tab-btn svg, .header-meta-item svg,
+.header-badge svg{fill:none !important;stroke:currentColor !important;stroke-linecap:round !important;stroke-linejoin:round !important;stroke-width:2 !important}
+
+/* HEADER */
+.header{
+  padding:var(--sp-3x) 0 var(--sp-xl);
+  border-bottom:1px solid var(--border);
+  margin-bottom:var(--sp-xl);
+  position:relative;
+}
+.header::after{
+  content:'';
+  position:absolute;
+  bottom:-1px;left:10%;right:10%;
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-light),transparent);
+  opacity:0.3;
+}
+.header-top{display:flex;align-items:center;gap:var(--sp-sm);margin-bottom:var(--sp-md)}
+.header-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,var(--scu-green),#6db356);color:#000;
+  font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;
+  padding:5px 14px;border-radius:100px;box-shadow:0 0 20px rgba(147,196,125,0.15);
+}
+.header-badge svg{width:14px;height:14px;color:#000}
+.header h1{
+  font-size:clamp(28px,4.5vw,44px);font-weight:800;letter-spacing:-0.03em;line-height:1.12;
+  margin-bottom:var(--sp-sm);
+  background:linear-gradient(135deg,var(--fg) 0%,var(--scu-green) 60%,var(--accent-light) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.header p{color:var(--muted);font-size:15px;max-width:680px;line-height:1.8}
+.header-meta{display:flex;flex-wrap:wrap;gap:var(--sp-sm) var(--sp-lg);margin-top:var(--sp-lg)}
+.header-meta-item{
+  display:inline-flex;align-items:center;gap:var(--sp-sm);
+  font-size:12px;color:var(--muted);
+  background:var(--surface-2);border:1px solid var(--border);
+  padding:6px 14px;border-radius:100px;backdrop-filter:blur(8px);
+}
+.header-meta-item svg{width:14px;height:14px;color:var(--accent-light)}
+.header-meta-item strong{color:var(--fg);font-weight:600;margin-right:2px}
+
+/* TABS */
+.tabs{
+  display:flex;gap:3px;margin-bottom:var(--sp-xl);
+  background:var(--surface);border-radius:var(--r-lg);padding:4px;
+  border:1px solid var(--border);backdrop-filter:blur(12px);
+}
+.tab-btn{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:var(--sp-sm);
+  padding:14px 24px;border:none;background:transparent;color:var(--muted);
+  font-family:var(--font-sans);font-size:13px;font-weight:600;
+  cursor:pointer;border-radius:var(--r-md);transition:all var(--t-base);
+}
+.tab-btn svg{width:16px;height:16px;color:currentColor}
+.tab-btn:hover{color:var(--fg);background:var(--surface-2)}
+.tab-btn:focus-visible{outline:2px solid var(--ring);outline-offset:-2px}
+.tab-btn.active{background:var(--surface-3);color:var(--fg);box-shadow:var(--sh-sm)}
+.tab-content{display:none;animation:fadeIn .3s ease}
+.tab-content.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+/* INFO BAR */
+.info-bar{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:var(--sp-lg) var(--sp-xl);margin-bottom:var(--sp-xl);
+  display:flex;flex-wrap:wrap;gap:var(--sp-md) var(--sp-2x);
+  backdrop-filter:blur(12px);
+}
+.info-item{display:flex;flex-direction:column;gap:3px;min-width:72px}
+.info-item .label{
+  font-size:9px;text-transform:uppercase;letter-spacing:1px;
+  color:var(--muted-2);font-weight:600;
+}
+.info-item .value{font-size:15px;font-weight:600;color:var(--fg)}
+.info-item .value.gold{color:var(--scu-gold)}
+.info-item .value.green{color:var(--scu-green)}
+
+/* TIMELINE */
+.timeline-wrapper{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  padding:var(--sp-lg);margin-bottom:var(--sp-xl);
+  overflow-x:auto;-webkit-overflow-scrolling:touch;backdrop-filter:blur(12px);
+}
+.timeline-wrapper::-webkit-scrollbar{height:5px}
+.timeline-wrapper::-webkit-scrollbar-track{background:var(--surface-2);border-radius:3px}
+.timeline-wrapper::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:3px}
+.timeline{
+  display:flex;gap:0;min-width:750px;position:relative;height:60px;align-items:flex-end;padding-bottom:2px;
+}
+.timeline-hour{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;position:relative}
+.timeline-hour .tl-label{
+  font-size:10px;font-weight:600;color:var(--muted-2);letter-spacing:0.5px;font-family:var(--font-mono);
+}
+.timeline-hour .tl-bar{
+  width:100%;height:5px;background:var(--surface-3);border-radius:3px;position:relative;overflow:hidden;
+}
+.timeline-hour .tl-fill{
+  position:absolute;top:0;left:0;bottom:0;
+  background:linear-gradient(90deg,var(--accent),var(--accent-light));
+  border-radius:3px;opacity:0;transition:opacity var(--t-slow);
+}
+.timeline-hour.active .tl-fill{opacity:1}
+.timeline-hour .tl-marker{width:2px;height:7px;background:var(--muted-2);border-radius:1px}
+
+/* SCENE CARD */
+.scene-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);
+  margin-bottom:var(--sp-lg);overflow:hidden;
+  transition:all var(--t-base);backdrop-filter:blur(12px);
+  position:relative;
+}
+.scene-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent-light),transparent);
+  opacity:0;transition:opacity var(--t-base);
+}
+.scene-card:hover{border-color:var(--border-2);box-shadow:var(--sh-md),var(--sh-glow)}
+.scene-card:hover::before{opacity:0.4}
+.scene-card[data-tag="present"]{--tag-bg:linear-gradient(135deg,#2563EB,#1D4ED8);--tag-txt:#fff}
+.scene-card[data-tag="flashback"]{--tag-bg:linear-gradient(135deg,#F1C232,#E6A817);--tag-txt:#000}
+.scene-card[data-tag="ending"]{--tag-bg:linear-gradient(135deg,#93C47D,#6DB356);--tag-txt:#000}
+.scene-card[data-tag="break"]{--tag-bg:linear-gradient(135deg,#475569,#334155);--tag-txt:#fff}
+
+.scene-header{
+  display:flex;align-items:center;gap:var(--sp-sm);
+  padding:var(--sp-md) var(--sp-lg);background:var(--surface-2);
+  border-bottom:1px solid var(--border);flex-wrap:wrap;
+}
+.scene-tag{
+  font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;
+  padding:4px 12px;border-radius:100px;
+  background:var(--tag-bg,#334155);color:var(--tag-txt,#fff);
+  white-space:nowrap;
+}
+.scene-time{
+  font-size:13px;font-weight:500;color:var(--muted);font-family:var(--font-mono);white-space:nowrap;
+  display:flex;align-items:center;gap:5px;
+}
+.scene-time svg{width:13px;height:13px;color:var(--muted-2)}
+.scene-location{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:4px}
+.scene-location svg{width:13px;height:13px;color:var(--accent-light)}
+.scene-location strong{color:var(--fg);font-weight:500}
+
+.scene-body{padding:var(--sp-lg);display:grid;grid-template-columns:1fr 240px;gap:var(--sp-lg)}
+@media(max-width:900px){.scene-body{grid-template-columns:1fr}}
+
+.scene-desc{min-width:0}
+.scene-desc h3{
+  font-size:15px;font-weight:700;margin-bottom:var(--sp-sm);
+  display:flex;align-items:center;gap:var(--sp-sm);flex-wrap:wrap;
+}
+.scene-desc h3 .sn{color:var(--accent-light);font-weight:800}
+.scene-desc > p{color:var(--muted);font-size:13px;line-height:1.8;margin-bottom:var(--sp-sm)}
+
+.scene-dtags{display:flex;flex-wrap:wrap;gap:var(--sp-xs);margin-bottom:var(--sp-sm)}
+.scene-dtag{
+  font-size:10px;padding:3px 10px;border-radius:100px;
+  background:var(--surface-3);color:var(--muted);border:1px solid var(--border);font-weight:500;
+  display:flex;align-items:center;gap:4px;
+}
+.scene-dtag strong{color:var(--fg)}
+.scene-dtag svg{width:11px;height:11px;opacity:0.6;color:currentColor}
+
+details.scene-shots{margin-top:var(--sp-md)}
+details.scene-shots summary{
+  cursor:pointer;font-size:12px;font-weight:600;color:var(--accent-light);
+  padding:var(--sp-sm) 0;user-select:none;display:flex;align-items:center;gap:6px;
+}
+details.scene-shots summary:hover{opacity:0.8}
+details.scene-shots summary svg{width:14px;height:14px;transition:transform var(--t-fast);color:currentColor}
+details.scene-shots[open] summary svg{transform:rotate(90deg)}
+.shot-table{width:100%;border-collapse:collapse;margin-top:var(--sp-sm);font-size:12px}
+.shot-table thead th{
+  text-align:left;padding:8px 10px;background:var(--surface-3);
+  color:var(--muted);font-weight:600;font-size:9px;text-transform:uppercase;letter-spacing:0.8px;
+  border-bottom:1px solid var(--border);
+}
+.shot-table tbody td{padding:7px 10px;border-bottom:1px solid var(--border);color:var(--fg);vertical-align:top;line-height:1.6}
+.shot-table tbody tr:last-child td{border-bottom:none}
+.shot-table tbody tr:hover{background:var(--surface-2)}
+.shot-table .st-trans{color:var(--scu-gold);font-weight:500}
+.shot-table td:first-child{font-family:var(--font-mono);font-size:11px;color:var(--muted-2);white-space:nowrap}
+
+.scene-images{display:flex;flex-direction:column;gap:var(--sp-sm)}
+.scene-images img{width:100%;border:1px solid var(--border);display:block;object-fit:cover;max-height:150px;background:var(--surface-2)}
+.scene-images .img-label{font-size:9px;color:var(--muted-2);text-align:center;margin-top:-4px;font-family:var(--font-mono);letter-spacing:0.3px}
+.scene-images .img-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-sm)}
+
+.scene-notes{
+  margin-top:var(--sp-md);padding:var(--sp-sm) var(--sp-md);
+  background:rgba(245,158,11,0.06);border-left:3px solid var(--scu-gold);
+  border-radius:0 var(--r-md) var(--r-md) 0;
+  font-size:12px;color:var(--muted);line-height:1.7;display:flex;align-items:flex-start;gap:8px;
+}
+.scene-notes svg{width:15px;height:15px;flex-shrink:0;margin-top:1px;color:var(--scu-gold)}
+.scene-notes strong{color:var(--scu-gold)}
+.scene-notes.destructive{background:rgba(239,68,68,0.06);border-left-color:var(--destructive)}
+.scene-notes.destructive svg{color:var(--destructive)}
+.scene-notes.destructive strong{color:var(--destructive)}
+.scene-notes.info{background:rgba(59,130,246,0.06);border-left-color:var(--accent)}
+.scene-notes.info svg{color:var(--accent-light)}
+.scene-notes.info strong{color:var(--accent-light)}
+
+.xdoc-badge{
+  display:inline-block;font-size:9px;padding:2px 9px;border-radius:100px;
+  font-weight:600;letter-spacing:0.3px;
+}
+.xdoc-badge.match{background:rgba(34,197,94,0.12);color:var(--success)}
+.xdoc-badge.split{background:rgba(245,158,11,0.12);color:var(--warning)}
+.xdoc-badge.merged{background:rgba(59,130,246,0.12);color:var(--info)}
+.xdoc-badge.mismatch{background:rgba(239,68,68,0.12);color:var(--destructive)}
+
+.footer{margin-top:var(--sp-3x);padding:var(--sp-xl) 0;border-top:1px solid var(--border);text-align:center;color:var(--muted-2);font-size:12px}
+:focus-visible{outline:2px solid var(--ring);outline-offset:2px;border-radius:var(--r-sm)}
+
+.wrap-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,var(--destructive),#DC2626) !important;
+  color:#fff !important;
+}
+.wrap-badge svg{color:#fff !important}
+
+/* SEARCH BAR */
+.search-bar{
+  display:flex;align-items:center;gap:var(--sp-sm);
+  background:var(--surface-2);border:1px solid var(--border);
+  border-radius:100px;padding:6px 16px;margin:var(--sp-lg) 0 var(--sp-md);
+  backdrop-filter:blur(12px);transition:all var(--t-base);max-width:480px;
+}
+.search-bar:focus-within{border-color:var(--accent-light);box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
+.search-icon{width:16px;height:16px;color:var(--muted-2);flex-shrink:0}
+.search-input{
+  flex:1;border:none;background:transparent;color:var(--fg);
+  font-family:var(--font-sans);font-size:13px;outline:none;
+  padding:4px 0;min-width:0;
+}
+.search-input::placeholder{color:var(--muted-2)}
+.search-clear{
+  display:none;align-items:center;justify-content:center;
+  border:none;background:var(--surface-3);color:var(--muted);
+  width:20px;height:20px;border-radius:50%;cursor:pointer;padding:0;
+  transition:all var(--t-fast);
+}
+.search-clear:hover{background:var(--border-2);color:var(--fg)}
+.search-clear svg{width:12px;height:12px}
+.search-clear.visible{display:flex}
+.search-stats{
+  font-size:11px;color:var(--muted-2);margin-bottom:var(--sp-sm);
+  min-height:18px;font-family:var(--font-mono);
+}
+
+/* SCENE CARD HIDDEN STATE */
+.scene-card.hidden{display:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .search-bar{margin:var(--sp-md) 0;max-width:100%}
+  .header{padding:var(--sp-2x) 0 var(--sp-lg)}
+  .scene-body{padding:var(--sp-md)}
+  .tabs .tab-btn{padding:10px 14px;font-size:11px}
+  .tabs .tab-btn svg{width:14px;height:14px}
+  .header-meta-item{padding:4px 10px;font-size:11px}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <div class="header-top">
+      <span class="header-badge">
+        <svg viewBox="0 0 24 24"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y1="13"/><line x1="16" y1="17" x2="8" y1="17"/></svg>
+        Production Document
+      </span>
+    </div>
+    <h1>Breakdown Scene<br>Video Profile SCU 2026</h1>
+    <p>Breakdown lengkap 2 hari produksi video company profile Soegijapranata Catholic University. Menyatukan data dari <strong>Call Sheet</strong> (2 hari) dan <strong>Detail Shotlist</strong> (21 scene, 3 babak).</p>
+    <div class="search-bar">
+      <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" class="search-input" id="searchInput" placeholder="Cari scene, lokasi, shot, cast..." oninput="filterScenes()" autocomplete="off">
+      <button class="search-clear" id="searchClear" onclick="clearSearch()" aria-label="Clear search">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="search-stats" id="searchStats"></div>
+    <div class="header-meta">
+      <span class="header-meta-item">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <strong>2 Hari</strong>Produksi
+      </span>
+      <span class="header-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y1="13"/><line x1="16" y1="17" x2="8" y1="17"/></svg>
+        <strong>21</strong> Scene
+      </span>
+      <span class="header-meta-item">
+        <svg viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        <strong>60+</strong> Shot
+      </span>
+      <span class="header-meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <strong>Kampus 1</strong> 30 Juni
+      </span>
+      <span class="header-meta-item">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <strong>Kampus 2 BSB</strong> 1 Juli
+      </span>
+    </div>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Pilih hari">
+    <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="day1" onclick="switchTab('day1')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Day 1 &mdash; 30 Juni 2026
+    </button>
+    <button class="tab-btn" role="tab" aria-selected="false" aria-controls="day2" onclick="switchTab('day2')">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      Day 2 &mdash; 1 Juli 2026
+    </button>
+  </nav>
+
+  <!-- ===== DAY 1 ===== -->
+  <section id="day1" class="tab-content active" role="tabpanel">
+    <div class="info-bar">
+      <div class="info-item"><span class="label">03:00</span><span class="value">Crew Call</span></div>
+      <div class="info-item"><span class="label">05:00</span><span class="value">Breakfast</span></div>
+      <div class="info-item"><span class="label">05:30</span><span class="value">SCU Call</span></div>
+      <div class="info-item"><span class="label">05:49</span><span class="value green">Sunrise</span></div>
+      <div class="info-item"><span class="label">06:00</span><span class="value">1st Cam Roll</span></div>
+      <div class="info-item"><span class="label">12:00</span><span class="value">Lunch</span></div>
+      <div class="info-item"><span class="label">17:59</span><span class="value green">Sunset</span></div>
+      <div class="info-item"><span class="label">19:30</span><span class="value gold">Est Wrap</span></div>
+    </div>
+    <div class="timeline-wrapper">
+      <div class="timeline">
+        <div class="timeline-hour"><span class="tl-label">05</span><div class="tl-bar"></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">06</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">07</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">08</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">09</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">10</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">11</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">12</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">13</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">14</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">15</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">16</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">17</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">18</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">19</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour"><span class="tl-label">20</span><div class="tl-bar"></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour"><span class="tl-label">21</span><div class="tl-bar"></div><span class="tl-marker"></span></div>
+      </div>
+    </div>
+
+    <!-- Breakfast -->
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header">
+        <span class="scene-tag">Prep</span>
+        <span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>05:00 &ndash; 06:00</span>
+        <span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Kampus 1</strong></span>
+      </div>
+      <div class="scene-body">
+        <div class="scene-desc">
+          <h3>Breakfast & Set Up</h3>
+          <p>Persiapan awal produksi di area Patung Soegijapranata. Breakfast kru dan talent 05:00&ndash;05:30, dilanjutkan set up equipment 05:30&ndash;06:00.</p>
+          <div class="scene-dtags"><span class="scene-dtag">Breakfast 05:00&ndash;05:30</span><span class="scene-dtag">Set Up 05:30&ndash;06:00</span></div>
+        </div>
+        <div class="scene-images"></div>
+      </div>
+    </div>
+
+    <!-- Scene 2 -->
+    <div class="scene-card" data-tag="present">
+      <div class="scene-header">
+        <span class="scene-tag">Bagian 1 &middot; Present Day</span>
+        <span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>06:00 &ndash; 07:00</span>
+        <span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Area Patung Soegijapranata</strong></span>
+        <span class="xdoc-badge merged">Scene 2 + 21</span>
+      </div>
+      <div class="scene-body">
+        <div class="scene-desc">
+          <h3><span class="sn">Scene 2</span> Opening Hero</h3>
+          <p>Dion melangkah maju menatap hangatnya matahari. Maya berdiri di samping dengan seragam dokter. Sun flare dari balik gedung SCU. Extreme close up mata Dion &mdash; zoom ke pupil &mdash; transisi ke flashback. Scene 21 (ending) menggunakan footage yang sama, tilt down dari langit ke wajah Dion tersenyum.</p>
+          <div class="scene-dtags">
+            <span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E</span>
+            <span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span>
+            <span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg>Sunrise 05:49</span>
+            <span class="scene-dtag"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Golden Hour</span>
+          </div>
+          <details class="scene-shots">
+            <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>7 shots</summary>
+            <table class="shot-table">
+              <thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+              <tbody>
+                <tr><td>2.1</td><td>Wide</td><td>Tracking Backward</td><td>Maya (baju dokter) berdiri di depan gedung SCU</td><td>&ndash;</td></tr>
+                <tr><td>2.2</td><td>Close Up</td><td>&ndash;</td><td>Maya memejamkan mata, membuka ke arah matahari</td><td>&ndash;</td></tr>
+                <tr><td>2.3</td><td>Medium</td><td>Tracking Backward</td><td>Dion (baju arsitek) berjalan menghampiri Maya</td><td>&ndash;</td></tr>
+                <tr><td>2.4</td><td>Low Angle</td><td>Static / Lens Flare</td><td>Matahari mengintip dari balik gedung SCU</td><td>&ndash;</td></tr>
+                <tr><td>2.5</td><td>MS (2-Shot)</td><td>Dolly In</td><td>Dion dan Maya berdampingan, menatap masa depan</td><td>&ndash;</td></tr>
+                <tr><td>2.6</td><td>Close Up</td><td>&ndash;</td><td>Saling berpandangan, OTS patung Soegijapranata</td><td>&ndash;</td></tr>
+                <tr><td>2.7</td><td>ECU</td><td>Fast Zoom In</td><td>Detail mata Dion, zoom ke pupil</td><td class="st-trans">Eye Masking &rarr; Flashback</td></tr>
+              </tbody>
+            </table>
+          </details>
+        </div>
+        <div class="scene-images">
+          <div class="img-grid">
+            <img src="Detail Shotlist - Video Profile SCU/images/image9.png" alt="Wide shot Maya" loading="lazy">
+            <img src="Detail Shotlist - Video Profile SCU/images/image19.png" alt="2-shot Dion Maya" loading="lazy">
+          </div>
+          <span class="img-label">Shot 2.1 & 2.5</span>
+          <div class="img-grid">
+            <img src="Detail Shotlist - Video Profile SCU/images/image11.png" alt="ECU mata" loading="lazy">
+            <img src="Detail Shotlist - Video Profile SCU/images/image6.png" alt="Sky transition" loading="lazy">
+          </div>
+          <span class="img-label">ECU Mata (2.7) & Sky Transition</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prep 07:00 -->
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>07:00 &ndash; 07:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Move untuk scene Profesi Gathering.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <!-- Scene 9 -->
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>07:15 &ndash; 08:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Area Patung Soegijapranata</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc">
+          <h3><span class="sn">Scene 9</span> Profesi Gathering</h3>
+          <p>Kembali ke masa kini. Kamera menangkap momen topi jatuh, beralih ke Dion, Maya, dan teman-teman yang sudah menggunakan seragam profesi. Semua karakter berdiri bangga.</p>
+          <div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span></div>
+        </div>
+        <div class="scene-images">
+          <img src="Detail Shotlist - Video Profile SCU/images/image34.png" alt="Toga" loading="lazy">
+          <span class="img-label">Scene 20 (Toga)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Prep 08:30 -->
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>08:30 &ndash; 09:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Persiapan untuk scene Toga kelulusan.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <!-- Scene 20 -->
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>09:00 &ndash; 09:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Area Patung Soegijapranata</strong></span><span class="xdoc-badge match">Shotlist Scene 20</span></div>
+      <div class="scene-body">
+        <div class="scene-desc">
+          <h3><span class="sn">Scene 20</span> Toga Kelulusan</h3>
+          <p>Transisi dari aktivitas kampus &mdash; Dion, Maya, dan teman-teman sudah memakai baju Toga. Topi toga diterbangkan. Orang tua memeluk Dion. Low angle tilt up: topi menutupi matahari &mdash; transisi kembali ke masa kini.</p>
+          <div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span><span class="scene-dtag"><strong>Wardrobe</strong> Toga</span></div>
+          <details class="scene-shots">
+            <summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
+            <table class="shot-table"><thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+            <tbody>
+              <tr><td>19.1</td><td>WS</td><td>Arc Shot</td><td>Dion, Maya, teman pakai Toga</td><td>&ndash;</td></tr>
+              <tr><td>19.2</td><td>Medium</td><td>&ndash;</td><td>Orang tua memeluk Dion, sungkem</td><td>&ndash;</td></tr>
+              <tr><td>19.2b</td><td>Low Angle</td><td>Tilt Up</td><td>Topi toga terbang menutupi matahari</td><td class="st-trans">Sky/Object &rarr; Masa Kini</td></tr>
+            </tbody></table>
+          </details>
+          <div class="scene-notes"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><strong>DOP:</strong> Timing topi toga menutup lensa harus presisi.</div>
+        </div>
+        <div class="scene-images">
+          <div class="img-grid">
+            <img src="Detail Shotlist - Video Profile SCU/images/image34.png" alt="Toga" loading="lazy">
+            <img src="Detail Shotlist - Video Profile SCU/images/image6.png" alt="Sky transition" loading="lazy">
+          </div>
+          <span class="img-label">Toga & Sky Transition</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Remaining Day 1 scenes... -->
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>09:30 &ndash; 09:45</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Move ke area tulisan ikonik SCU.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>09:45 &ndash; 10:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Area Tulisan SCU</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 19</span> Kampus Life</h3><p>Dion dan Maya memasuki area utama kampus di depan patung ikonik Soegijapranata. Maya bersama teman-temannya berjalan tertawa. Arc shot/orbit &mdash; rotasi dipercepat dengan blur motion untuk transisi ke wisuda.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span></div>
+          <details class="scene-shots"><summary><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>3 shots</summary>
+            <table class="shot-table"><thead><tr><th>Shot</th><th>Size</th><th>Movement</th><th>Description</th><th>Transisi</th></tr></thead>
+            <tbody>
+              <tr><td>18.1</td><td>Wide</td><td>Pan</td><td>Dion & Maya memasuki area tulisan SCU</td><td>&ndash;</td></tr>
+              <tr><td>18.2</td><td>Medium</td><td>Steadicam</td><td>Berjalan di sekitar kampus, tertawa</td><td>&ndash;</td></tr>
+              <tr><td>18.3</td><td>MS (Group)</td><td>Arc Shot</td><td>Kamera memutari grup</td><td class="st-trans">Circle Camera &rarr; Blur &rarr; Wisuda</td></tr>
+            </tbody></table>
+          </details>
+        </div>
+        <div class="scene-images"></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:15 &ndash; 10:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Ruang Praperadilan FH.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:30 &ndash; 11:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Ruang Praperadilan FH</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 10</span> Praperadilan Hukum</h3><p>Mahasiswa komunikasi melakukan praktik praperadilan. Sidang dengan hakim, presenter, dan kameramen.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span></div></div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image15.png" alt="Praperadilan" loading="lazy"><span class="img-label">Scene 10</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11:15 &ndash; 11:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Auditorium Kampus.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>11:30 &ndash; 12:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Auditorium Kampus</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 7A</span> Maya Menari</h3><p>Maya menari di atas panggung, struggle dengan gerakan tarian. High five tos &mdash; slow motion &mdash; whip pan transisi.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span></div></div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image30.png" alt="Maya dance" loading="lazy"><span class="img-label">Scene 7A</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12:30 &ndash; 13:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lapangan Basket</strong></span><span class="xdoc-badge split">Split Day</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 3B</span> Dion Berlari</h3><p>Dion berlari memasuki area kampus, berpindah-pindah lokasi. Midday &mdash; cahaya keras, butuh ND filter.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span></div>
+          <div class="scene-notes"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><strong>Continuity:</strong> Kostum Dion harus konsisten antara Scene 3A dan 3B.</div>
+        </div>
+        <div class="scene-images"></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Break</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12:30 &ndash; 13:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lunch</strong></span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Lunch</h3><p>Ishoma & persiapan sesi sore.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>13:30 &ndash; 13:45</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Koridor Ruang Konsultasi.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14:00 &ndash; 15:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Ruang Konsultasi</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 5 + 8</span> Konsultasi Psikologi</h3><p>Dion masuk, berpapasan dengan mahasiswa lain, duduk berkonsultasi dengan psikolog.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span></div>
+          <div class="scene-notes"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Shotlist Scene 5 (Lab FK) tidak dijadwalkan di Call Sheet.</div>
+        </div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image1.png" alt="Konsultasi" loading="lazy"><span class="img-label">OTS Konsultan</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>15:15 &ndash; 15:45</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Lokasi UMKM.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>16:00 &ndash; 17:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lokasi UMKM</strong></span><span class="xdoc-badge merged">Call Sheet + Shotlist 17,18</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 7 / 17 / 18</span> KKN & UMKM</h3><p>Mahasiswa KKN membantu pelaku UMKM mengembangkan usaha &mdash; diskusi desain kemasan.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D</span></div></div>
+        <div class="scene-images"></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Break</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>17:30 &ndash; 18:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Persiapan Malam</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Persiapan Malam</h3><p>Break kru + set up lighting untuk scene malam.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>18:30 &ndash; 19:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lab Teknik</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 14</span> Lab Teknik</h3><p>Dua mahasiswa melakukan aktivitas pengelasan. Detail layar monitor.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D (Malam)</span></div>
+          <div class="scene-notes destructive"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg><strong>Lighting:</strong> Minimal 2 LED panel.</div>
+        </div>
+        <div class="scene-images"></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>19:00 &ndash; 19:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Lab FITL.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>19:15 &ndash; 19:45</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lab FITL</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 13</span> FITL Observasi</h3><p>Tiga mahasiswa melakukan praktikum. Observasi tanaman.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D (Malam)</span></div></div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image28.png" alt="FITL" loading="lazy"><span class="img-label">Scene 13</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>19:45 &ndash; 20:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Fakultas FEB.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>20:00 &ndash; 21:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Fakultas FEB</strong></span><span class="xdoc-badge mismatch">Terdaftar Day 2</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 15</span> Pemantauan Saham</h3><p>Mahasiswi FEB fokus menatap grafik saham. Refleksi grafik di kacamata.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/></svg><strong>D/N</strong> D (Malam)</span></div>
+          <div class="scene-notes info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Perlu verifikasi jadwal.</div>
+        </div>
+        <div class="scene-images"></div>
+      </div>
+    </div>
+
+    <!-- WRAP -->
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag wrap-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Wrap</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>19:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>DAY 1 &mdash; WRAP</strong></span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Selesai</h3><p>Total 16.5 jam produksi (03:00&ndash;19:30).</p></div><div class="scene-images"></div></div>
+    </div>
+  </section>
+
+  <!-- ===== DAY 2 ===== -->
+  <section id="day2" class="tab-content" role="tabpanel">
+    <div class="info-bar">
+      <div class="info-item"><span class="label">05:00</span><span class="value">Crew Call</span></div>
+      <div class="info-item"><span class="label">05:00</span><span class="value">Breakfast</span></div>
+      <div class="info-item"><span class="label">05:49</span><span class="value green">Sunrise</span></div>
+      <div class="info-item"><span class="label">06:00</span><span class="value">SCU Call</span></div>
+      <div class="info-item"><span class="label">07:30</span><span class="value">1st Cam Roll</span></div>
+      <div class="info-item"><span class="label">12:00</span><span class="value">Lunch</span></div>
+      <div class="info-item"><span class="label">17:59</span><span class="value green">Sunset</span></div>
+      <div class="info-item"><span class="label">21:00</span><span class="value gold">Est Wrap</span></div>
+    </div>
+    <div class="timeline-wrapper">
+      <div class="timeline">
+        <div class="timeline-hour"><span class="tl-label">05</span><div class="tl-bar"></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">06</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">07</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">08</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">09</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">10</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">11</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">12</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">13</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">14</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">15</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">16</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">17</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">18</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">19</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">20</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+        <div class="timeline-hour active"><span class="tl-label">21</span><div class="tl-bar"><div class="tl-fill" style="width:100%"></div></div><span class="tl-marker"></span></div>
+      </div>
+    </div>
+
+    <!-- Breakfast -->
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Prep</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>05:00 &ndash; 06:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Kampus 2 BSB</strong></span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Breakfast & Set Up</h3><p>Breakfast 05:00&ndash;05:30. Set up 05:30&ndash;06:00. 1st Cam Roll 07:30.</p><div class="scene-dtags"><span class="scene-dtag">Breakfast 05:00&ndash;05:30</span><span class="scene-dtag">Set Up 05:30&ndash;06:00</span><span class="scene-dtag">1st Cam Roll 07:30</span></div></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>06:00 &ndash; 06:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Library Kampus 2</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3><span class="sn">Scene 6</span> Maya Bertemu Dion</h3><p>Maya berjalan, tanpa sengaja berabrakan dengan Dion. Mereka berkenalan.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E</span><span class="scene-dtag"><strong>Cast</strong> Maya, Dion, 4 extras</span></div></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>06:30 &ndash; 07:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Selasar Kampus 2</strong></span><span class="xdoc-badge split">Split Day</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3><span class="sn">Scene 3A</span> Dion Berlari</h3><p>Dion berlari memasuki gedung kampus, berpindah-pindah lokasi.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> E & I</span></div>
+          <div class="scene-notes"><svg viewBox="0 0 24 24"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg><strong>Continuity:</strong> Kostum Dion harus konsisten dengan Scene 3B.</div>
+        </div>
+        <div class="scene-images"></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>07:00 &ndash; 07:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Perpustakaan SCU.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>07:15 &ndash; 08:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Perpustakaan SCU</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 7B</span> Dion Stres</h3><p>Dion menghadapi masalah berat dengan tugas. Teman peduli menghibur dan membawanya ke ruang konsultasi.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><strong>Props</strong> Laptop, Sketsa, Maket</span></div></div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image12.png" alt="Dion stres" loading="lazy"><span class="img-label">7B Close Up</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>08:00 &ndash; 08:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Studio Arsitektur.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>08:15 &ndash; 09:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Studio Arsitektur</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 6</span> Maket Arsitektur</h3><p>Dion mengintip sela-sela maket yang sedikit miring (POV handheld). Dosen datang memberi arahan.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span></div>
+          <div class="scene-notes info"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg><strong>Grafis:</strong> "Prodi Arsitektur" overlay.</div>
+        </div>
+        <div class="scene-images">
+          <div class="img-grid"><img src="Detail Shotlist - Video Profile SCU/images/image10.png" alt="POV maket" loading="lazy"><img src="Detail Shotlist - Video Profile SCU/images/image8.png" alt="Dosen arsitektur" loading="lazy"></div>
+          <span class="img-label">POV Maket & Dosen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>09:30 &ndash; 10:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Laboratorium Medis.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:00 &ndash; 12:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lab Medis & Pertanian</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 4 + 5 + 12</span> Praktikum Multi Prodi</h3><p>Maya praktik pembedahan. Mahasiswa pertanian meneliti objek. Macro shot detail bibit.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span></div></div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image14.png" alt="Lab medis" loading="lazy"><span class="img-label">Lab Medis</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Break</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>12:00 &ndash; 13:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lunch</strong></span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Lunch</h3></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>13:00 &ndash; 13:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Gedung Badminton.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>13:15 &ndash; 14:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Gedung Badminton</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 16</span> Badminton</h3><p>Maya, Dion, dan 4 mahasiswa multi-prodi bermain badminton. Action tracking.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><strong>Props</strong> 6 raket, 10 shuttlecock</span></div></div>
+        <div class="scene-images"></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14:30 &ndash; 14:45</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Ruang Meeting.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="present">
+      <div class="scene-header"><span class="scene-tag">Bagian 1 &middot; Present Day</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>14:45 &ndash; 16:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Ruang Meeting</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 1</span> Meeting Client</h3><p>Dion bertemu client membahas proyek. Dolly zoom in. Circle move &mdash; masking foreground transition.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><strong>Props</strong> iPad, Maket, Poster</span></div></div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image5.png" alt="Dolly zoom" loading="lazy"><span class="img-label">Dolly Zoom (1.1)</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Move</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>16:00 &ndash; 16:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Laboratorium DKV.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>16:15 &ndash; 17:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Lab DKV</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 11</span> Coding & Robot</h3><p>Mahasiswa coding, robot menari. Whip pan transisi.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span></div></div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image31.png" alt="Coding" loading="lazy"><span class="img-label">Coding (Scene 11)</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag">Break</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>17:00 &ndash; 17:15</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Preparation</span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Preparation</h3><p>Pindah ke Gedung Theatre.</p></div><div class="scene-images"></div></div>
+    </div>
+
+    <div class="scene-card" data-tag="flashback">
+      <div class="scene-header"><span class="scene-tag">Bagian 2 &middot; Flashback</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>17:15 &ndash; 18:30</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>Gedung Theatre</strong></span><span class="xdoc-badge match">Call Sheet</span></div>
+      <div class="scene-body">
+        <div class="scene-desc"><h3><span class="sn">Scene 9</span> Paduan Suara</h3><p>Maya, Dion, dan teman-teman melihat paduan suara. Lampu mati kemudian menyala.</p><div class="scene-dtags"><span class="scene-dtag"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg><strong>I/E</strong> I</span><span class="scene-dtag"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Golden Hour</span></div>
+          <div class="scene-notes"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>Manfaatkan golden hour (sunset 17:59) untuk window light.</div>
+        </div>
+        <div class="scene-images"><img src="Detail Shotlist - Video Profile SCU/images/image29.png" alt="Paduan suara" loading="lazy"><span class="img-label">Paduan Suara</span></div>
+      </div>
+    </div>
+
+    <div class="scene-card" data-tag="break">
+      <div class="scene-header"><span class="scene-tag wrap-badge"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Wrap</span><span class="scene-time"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>21:00</span><span class="scene-location"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><strong>DAY 2 &mdash; WRAP</strong></span></div>
+      <div class="scene-body"><div class="scene-desc"><h3>Selesai</h3><p>Total 16 jam produksi (05:00&ndash;21:00).</p></div><div class="scene-images"></div></div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Breakdown Scene &mdash; Video Profile SCU 2026 &middot; Disusun dari Call Sheet & Detail Shotlist</p>
+  </footer>
+</div>
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  document.querySelector(`[aria-controls="${tabId}"]`).classList.add('active');
+  document.querySelector(`[aria-controls="${tabId}"]`).setAttribute('aria-selected','true');
+  document.querySelectorAll('.tab-btn').forEach(el => {
+    if(el.getAttribute('aria-controls') !== tabId) el.setAttribute('aria-selected','false');
+  });
+  filterScenes();
+}
+
+function filterScenes() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  const clearBtn = document.getElementById('searchClear');
+  const stats = document.getElementById('searchStats');
+  clearBtn.classList.toggle('visible', q.length > 0);
+  const activeTab = document.querySelector('.tab-content.active');
+  if (!activeTab) return;
+  const cards = activeTab.querySelectorAll('.scene-card');
+  let visibleCount = 0;
+  cards.forEach(card => {
+    if (!q) { card.classList.remove('hidden'); visibleCount++; return; }
+    const match = card.textContent.toLowerCase().includes(q);
+    if (match) { card.classList.remove('hidden'); visibleCount++; }
+    else { card.classList.add('hidden'); }
+  });
+  stats.textContent = q ? `${visibleCount} of ${cards.length} scenes match "${document.getElementById('searchInput').value}"` : '';
+}
+function clearSearch() {
+  document.getElementById('searchInput').value = '';
+  filterScenes();
+  document.getElementById('searchInput').focus();
+}
+</script>
+</body>
+</html>
